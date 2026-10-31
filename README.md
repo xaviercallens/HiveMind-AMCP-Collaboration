@@ -47,20 +47,29 @@
 
 ---
 
-## 🚀 Démarrage Rapide / Quick Start (60 Seconds)
+## ⚡ Start Here in 60 Seconds — Choose Your Role (`Developers` • `Contributors` • `HiveMiners` • `HiveMaster`)
 
-### 1. Obtenir une clé API gratuite (`100 HMT` offerts) / Get Your Free `hm-...` API Key
-- **Inscription directe / Direct Signup:** [https://hivemind-openrouter-1003063861791.us-central1.run.app/signup](https://hivemind-openrouter-1003063861791.us-central1.run.app/signup)
-- **Portail Communautaire La Ruche:** [https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/](https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/)
+| Role | Who You Are | Your 60-Second Onboarding Path | Primary Entry Point |
+| :--- | :--- | :--- | :--- |
+| **💻 1. Developers** | AI app builders, IDE users (`Claude Code`, `Cursor`, `Continue`, `Google Antigravity SDK`) | Sign up or log in for a free `+100 HMT` key and call `15+` specialized MoE Bees (`hivemind/coder`, `hivemind/bee-stars`, `hivemind/bee-lean-prover`, `hivemind/bee-rusty-sundials`) | 👉 **[Sign Up & Login (`/signup`)](https://hivemind-openrouter-1003063861791.us-central1.run.app/signup)** |
+| **🛠️ 2. Contributors** | Python/Rust/CUDA engineers, ML researchers, Lean 4 formal provers | Pick one of the 4 Working Groups in [`COLLABORATION.md`](COLLABORATION.md), co-develop with `hivemind/coder`, and pass the `GWAYA` Zero-Stub & 5-Layer Security gates | 👉 **[`COLLABORATION.md`](COLLABORATION.md)** & **[`xaviercallens/HiveMind`](https://github.com/xaviercallens/HiveMind)** |
+| **⛏️ 3. HiveMiners** | Gamers & GPU owners (`8–24 GB VRAM`: RTX 2060–4090, T4, ROCm/DirectML, Apple M1–M4) | Provide idle GPU cycles under `<= 1.5 GB` citizen Split-ML VRAM (`<= 6.5 GB` full ceiling) with `< 150 ms` automatic game preemption and earn `~112–115 HMT/hr` | 👉 **[Join as a HiveMiner (`/rejoindre`)](https://hivemind-openrouter-cfhmhmvv5a-uc.a.run.app/rejoindre?lang=fr)** & **[La Ruche Portal](https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/)** |
+| **👑 4. HiveMaster** | Swarm administrator (`role="admin"`), cluster coordinator & security operator | Operate the OpenRouter & BOINC coordinators, enforce the Thermodynamic Monotonic Ratchet ($\Delta \mathcal{L}_{\text{eval}} \le 0$), Multi-Krum, Canary anti-farming & 24/7 Cyber Defense | 👉 **[HiveMaster Command Runbook (Below)](#-4-hivemaster-swarm-admin--governance-ratchet--247-security-ops)** |
 
-### 2. Utiliser avec Google Antigravity SDK, Claude Code, Cursor ou OpenAI Python SDK
+---
+
+### 💻 1. Developers — Get Your Free `hm-...` Key & Call 15+ Specialized Bees
+- **Sign Up & Returning User Login (`+100.0 HMT` free starter grant):** [https://hivemind-openrouter-1003063861791.us-central1.run.app/signup](https://hivemind-openrouter-1003063861791.us-central1.run.app/signup)
+- **La Ruche Community Portal:** [https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/](https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/)
+
 ```python
+# Use with Google Antigravity SDK, Claude Code, Cursor, or OpenAI Python SDK
 import asyncio
 from google.antigravity import Agent, LocalOpenAIAgentConfig
 
 async def main():
     config = LocalOpenAIAgentConfig(
-        model="hivemind/bee-stars",
+        model="hivemind/bee-stars",  # or "hivemind/coder", "hivemind/bee-lean-prover", "hivemind/bee-rusty-sundials"
         base_url="https://hivemind-openrouter-1003063861791.us-central1.run.app/v1",
     ).lightweight()
     async with Agent(config=config) as agent:
@@ -70,10 +79,33 @@ async def main():
 asyncio.run(main())
 ```
 
-### 3. Exécuter la Suite de Vérification Inter-Projets (4 Couches)
+### 🛠️ 2. Contributors — Run the 4-Layer Cross-Project Verification Suite & Open a PR
 ```bash
+git clone https://github.com/xaviercallens/HiveMind-AMCP-Collaboration.git
+cd HiveMind-AMCP-Collaboration
 PYTHONPATH=src pytest tests/ -v
 ```
+- **Zero-Stub & Anti-Boubou Policy:** Every contribution is verified against `GWAYA` AST anti-stub gates ($E = 10^6$ fail-closed penalty on `pass` / `...` / `TODO` / `sorry`) and deterministic unit tests.
+
+### ⛏️ 3. HiveMiners — Provide Your Idle GPU (`8–24 GB VRAM`) with `< 150 ms` Game Preemption
+```bash
+# Option A — Live OpenRouter Inference Producer (serve local Ollama / llama.cpp models & earn HMT per 1k tokens):
+curl -sSLO https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/scripts/hivemind_producer_agent.py
+python3 hivemind_producer_agent.py \
+  --gateway https://hivemind-openrouter-1003063861791.us-central1.run.app \
+  --handle your-miner-tag
+
+# Option B — Nocturnal BOINC / DiLoCo QLoRA Worker (train 6-domain & 24-Bee experts during idle/night windows):
+curl -sSLO https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app/scripts/hivemind_boinc_idle_worker.py
+python3 hivemind_boinc_idle_worker.py \
+  --coordinator https://hivemind-at-home-ruche-cfhmhmvv5a-uc.a.run.app \
+  --handle your-miner-tag --domain physics_sim --once
+```
+
+### 👑 4. HiveMaster (Swarm Admin) — Governance, Ratchet & 24/7 Security Ops
+- **Coordinator & Gateway Control:** Operates `hivemind-openrouter` and `hivemind-at-home-ruche`, warm-model residency routing (`HM-S16-06`), and remote producer VRAM caps/pauses (`HM-S16-05`).
+- **Thermodynamic Monotonic Ratchet ($\Delta \mathcal{L}_{\text{eval}} \le 0$) & GWAYA Gate:** Promotes new MoE adapters only when held-out loss improves across all domains and paired McNemar $p < 0.05$.
+- **Byzantine, Canary & Cyber Defense:** Runs $2\sigma$-clipped Multi-Krum, 10% architecture-matched CUDA replay (`HM-S10-08`), Canary logit anti-farming (`HM-S33-02`), 5-Layer `PRSecurityScanner`, and 24/7 automated monitoring (`hivemind_30min_monitor.py` & `hivemind_2h_cyber_protection.py`).
 
 ---
 
