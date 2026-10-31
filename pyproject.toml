@@ -1,0 +1,11 @@
+[project]
+name = "hivemind-amcp-collaboration"
+version = "0.1.0"
+description = "Unified Collaboration & Integration Hub for HiveMind, AMCP, SocrateAI, OptimalEnergyAI, GWAYA, rusty-SUNDIALS, and x* Fork Bridges"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "AGPL-3.0-or-later" }
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
